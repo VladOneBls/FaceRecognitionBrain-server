@@ -1,6 +1,21 @@
 const express = require('express');
 // const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
+const knex = require('knex')
+
+// Connecting to the database 'FaceRecognitionBrainDB'
+const postgres = knex({
+	client: 'pg',
+  	connection: {
+  		host : '127.0.0.1', // same as localhost
+  		user : 'vladone',
+  		port: 3001,
+  		password : '',
+  		database : 'FaceRecognitionBrainDB'
+  	}
+});
+
+console.log(postgres.select('*').from('users'));
 
 const app = express();
 

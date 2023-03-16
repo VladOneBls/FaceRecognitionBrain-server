@@ -86,13 +86,17 @@ app.post('/register', (req, res) => {
 	//     console.log(hash);
 	// });
 
-	db('users').insert({
-		email: email,
-		name: name,
-		joined: new Date()
-	}).then(console.log);
-
-	res.json(database.users[database.users.length-1]); // grabbing the last item in the array, the user we just created
+	db('users')
+		.returning('*')
+		.insert({
+			email: email,
+			name: name,
+			joined: new Date()
+		})
+		.then(user => {
+			res.json(user[0]);
+		})
+		.catch(err => res.status(400).json('unable to register'))
 })
 
 

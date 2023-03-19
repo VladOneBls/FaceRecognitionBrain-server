@@ -8,7 +8,7 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
-// Connecting to the database 'FaceRecognitionBrainDB'
+// Connecting to the DB in Railway
 const db = knex({
 	client: 'pg',
   	connection: {

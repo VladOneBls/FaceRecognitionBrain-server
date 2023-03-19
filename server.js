@@ -29,7 +29,7 @@ app.use(cors());
 // ** END POINTS: ** //
 
 // ROOT ROUTE
-app.get('/', (req, res) => { res.send('success') })
+app.get('/', (req, res) => { res.send('Success') })
 // SIGNIN ROUTE
 app.post('/signin', signin.handleSignin(db, bcrypt)) // a more straight forward form of the below ones
 // REGISTER ROUTE
